@@ -1,6 +1,6 @@
 # Admin3 Dashboard - Documentation
 
-![Admin3 Dashboard Preview](screenshot/1.png)
+![Admin3 Dashboard Preview](/screenshot/1.png)
 
 ## Table of Contents
 1. [Overview](#overview)
