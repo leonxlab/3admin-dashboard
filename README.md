@@ -1,6 +1,11 @@
 # Admin3 Dashboard - Documentation
 
-![Admin3 Dashboard Preview](screenshot/1.PNG)
+![Admin3 Dashboard Preview 1](screenshot/1.PNG)
+![Admin3 Dashboard Preview 2](screenshot/2.PNG)
+![Admin3 Dashboard Preview 3](screenshot/3.PNG)
+![Admin3 Dashboard Preview 4](screenshot/4.PNG)
+![Admin3 Dashboard Preview 5](screenshot/5.PNG)
+![Admin3 Dashboard Preview 6](screenshot/6.PNG)
 
 ## Table of Contents
 1. [Overview](#overview)
