@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | Admin3</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        
+        <header>
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>3Admin</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../">Dashboard</a></li>
+                    <li><a href="../">Settings</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="../">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="profile-section">
+                <h2>User Profile</h2>
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="https://cdn.pixabay.com/photo/2017/02/23/13/05/avatar-2092113_640.png" alt="Profile Picture" class="profile-picture">
+                        <div class="profile-info">
+                            <h3>John Doe</h3>
+                            <p>Email: john.doe@example.com</p>
+                            <p>Role: Administrator</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <h4>Contact Information</h4>
+                        <p>Phone: +123 456 7890</p>
+                        <p>Address: 123 Main St, Anytown, USA</p>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="edit-btn">Edit Profile</button>
+                        <button class="delete-btn">Delete Profile</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use system preference
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            let theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            html.setAttribute('data-theme', theme);
+            updateIcon(theme);
+        }
+        
+        // Update toggle icon based on theme
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                icon.style.color = 'var(--theme-toggle-icon-dark)';
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                icon.style.color = 'var(--theme-toggle-icon-light)';
+            }
+        }
+        
+        // Toggle between dark and light theme
+        function toggleTheme() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            // Apply new theme
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon and animate
+            updateIcon(newTheme);
+            animateToggle();
+            
+            // Update any charts or theme-dependent elements
+            updateThemeDependentElements();
+        }
+        
+        // Add animation to toggle button
+        function animateToggle() {
+            themeToggle.classList.add('active');
+            setTimeout(() => {
+                themeToggle.classList.remove('active');
+            }, 500);
+        }
+        
+        // Update elements that need theme-specific changes
+        function updateThemeDependentElements() {
+            // Update chart colors if they exist
+            if (typeof updateChartColors === 'function') {
+                updateChartColors();
+            }
+        }
+        
+        // Initialize theme on load
+        applyTheme();
+        
+        // Event listeners
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Watch for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme();
+            }
+        });
+        
+        // Optional: Add keyboard shortcut (Alt+T) for theme toggle
+        document.addEventListener('keydown', (e) => {
+            if (e.altKey && e.key.toLowerCase() === 't') {
+                toggleTheme();
+            }
+        });
+    </script>
+</body>
+</html>

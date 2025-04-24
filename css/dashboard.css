@@ -1,0 +1,252 @@
+:root {
+    /* Light Theme */
+    --primary-bg: #FFFFFF;
+    --secondary-bg: #F8F9FA;
+    --accent-color: #3498DB;
+    --accent-hover: #2980B9;
+    --text-primary: #212529;
+    --text-secondary: #6C757D;
+    --border-color: #E9ECEF;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-bg: #FFFFFF;
+    --admin3-color-light: #3498DB; /* Warna judul 3Admin di light mode */
+    --admin3-color-dark: #1E88E5; /* Warna judul 3Admin di dark mode */
+    --theme-toggle-icon-light: #888888; /* Warna ikon bulan di light mode */
+    --theme-toggle-icon-dark: #FFFFFF; /* Warna ikon bulan di dark mode */
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --primary-bg: #1A1A1A;
+    --secondary-bg: #242424;
+    --accent-color: #1E88E5;
+    --accent-hover: #1565C0;
+    --text-primary: #F8F9FA;
+    --text-secondary: #CED4DA;
+    --border-color: #343A40;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --card-bg: #2D2D2D;
+    --admin3-color-light: #3498DB; /* Warna judul 3Admin di light mode */
+    --admin3-color-dark: #1E88E5; /* Warna judul 3Admin di dark mode */
+    --theme-toggle-icon-light: #888888; /* Warna ikon bulan di light mode */
+    --theme-toggle-icon-dark: #FFFFFF; /* Warna ikon bulan di dark mode */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    padding: 40px;
+    position: relative;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--secondary-bg);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--theme-toggle-icon-light);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: color 0.3s;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+[data-theme="dark"] .theme-toggle {
+    color: var(--theme-toggle-icon-dark);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--admin3-color-light);
+    font-size: 28px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+[data-theme="dark"] .logo {
+    color: var(--admin3-color-dark);
+}
+
+.logo i {
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+nav ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.scouts {
+    margin-bottom: 40px;
+}
+
+.scouts h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.scout-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.overview {
+    margin-bottom: 40px;
+}
+
+.overview h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.overview-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.overview .card {
+    width: calc(33.333% - 16px);
+}
+
+.recent-orders {
+    margin-bottom: 40px;
+}
+
+.recent-orders h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.recent-orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-orders table th, .recent-orders table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recent-orders table th {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.recent-orders table td {
+    color: var(--text-primary);
+}
+
+.recent-orders table tr:hover {
+    background-color: var(--secondary-bg);
+}
+
+.action-btn {
+    padding: 8px 16px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for theme toggle */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.theme-toggle.active {
+    animation: rotate 0.5s ease;
+}

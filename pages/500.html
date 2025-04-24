@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 500 | Internal Server Error</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/500.css">
+</head>
+<body>
+    <div class="error-container">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        
+        <div class="logo">
+            <i class="fas fa-cube"></i>
+            <span>3Admin</span>
+        </div>
+        
+        <div class="error-code">500</div>
+        <h1>Internal Server Error</h1>
+        <p class="subtitle">Oops! Something went wrong on our end. Please try again later.</p>
+        
+        <a href="../" class="back-home-btn">Go Back Home</a>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use system preference
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            let theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            html.setAttribute('data-theme', theme);
+            updateIcon(theme);
+        }
+        
+        // Update toggle icon based on theme
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                icon.style.color = 'var(--theme-toggle-icon-dark)';
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                icon.style.color = 'var(--theme-toggle-icon-light)';
+            }
+        }
+        
+        // Toggle between dark and light theme
+        function toggleTheme() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            // Apply new theme
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon and animate
+            updateIcon(newTheme);
+            animateToggle();
+            
+            // Update any charts or theme-dependent elements
+            updateThemeDependentElements();
+        }
+        
+        // Add animation to toggle button
+        function animateToggle() {
+            themeToggle.classList.add('active');
+            setTimeout(() => {
+                themeToggle.classList.remove('active');
+            }, 500);
+        }
+        
+        // Update elements that need theme-specific changes
+        function updateThemeDependentElements() {
+            // Update chart colors if they exist
+            if (typeof updateChartColors === 'function') {
+                updateChartColors();
+            }
+        }
+        
+        // Initialize theme on load
+        applyTheme();
+        
+        // Event listeners
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Watch for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme();
+            }
+        });
+        
+        // Optional: Add keyboard shortcut (Alt+T) for theme toggle
+        document.addEventListener('keydown', (e) => {
+            if (e.altKey && e.key.toLowerCase() === 't') {
+                toggleTheme();
+            }
+        });
+    </script>
+</body>
+</html>

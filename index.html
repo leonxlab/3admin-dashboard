@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin3 - Premium Dashboard | Triel Technologies</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span class="logo-text">Admin3</span>
+            </div>
+            <button class="toggle-sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="#" class="menu-link active">
+                    <span class="menu-icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="pages/profile.html" class="menu-link active">
+                    <span class="menu-icon"><i class="fas fa-user"></i></span>
+                    <span class="menu-text">Profile Page</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="pages/login.html" class="menu-link active">
+                    <span class="menu-icon"><i class="fas fa-sign-in"></i></span>
+                    <span class="menu-text">Login Page</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="pages/404.html" class="menu-link active">
+                    <span class="menu-icon"><i class="fas fa-exclamation-triangle"></i></span>
+                    <span class="menu-text">404 Page</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="pages/500.html" class="menu-link active">
+                    <span class="menu-icon"><i class="fas fa-server"></i></span>
+                    <span class="menu-text">500 Page</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link has-submenu">
+                    <span class="menu-icon"><i class="fas fa-layer-group"></i></span>
+                    <span class="menu-text">Bankshead</span>
+                    <span class="arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#" class="submenu-link">UI Elements</a></li>
+                    <li><a href="#" class="submenu-link">Form Elements</a></li>
+                    <li><a href="#" class="submenu-link">Charts</a></li>
+                    <li><a href="#" class="submenu-link">Tables</a></li>
+                    <li><a href="#" class="submenu-link">Icons</a></li>
+                    <li><a href="#" class="submenu-link">User Pages</a></li>
+                    <li><a href="#" class="submenu-link">Error Pages</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon"><i class="fas fa-book"></i></span>
+                    <span class="menu-text">Documentation</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link has-submenu">
+                    <span class="menu-icon"><i class="fas fa-chart-bar"></i></span>
+                    <span class="menu-text">Scaled</span>
+                    <span class="arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#" class="submenu-link">Analyzing</a></li>
+                    <li><a href="#" class="submenu-link">Scouts</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div class="header-actions">
+                <button class="action-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <div class="theme-switch">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </button>
+                <button class="action-btn" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span>KO</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Leon</div>
+                        <div class="user-status">Last login: 2h ago</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+    <div class="content fade-in">
+        <!-- Dashboard Page (Default Active) -->
+        <div id="dashboard-page" class="page-container active">
+            <div class="content-header">
+                <h2 class="section-title">Performance Overview</h2>
+                <div class="export-buttons">
+                    <button class="export-btn">
+                        <i class="far fa-file-pdf"></i>
+                        <span>Export PDF</span>
+                    </button>
+                    <button class="export-btn">
+                        <i class="far fa-file-excel"></i>
+                        <span>Export Excel</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid slide-in-up">
+                <!-- Sessions Score -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Sessions Score</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <svg class="progress-circular" viewBox="0 0 90 90">
+                            <circle class="bg" cx="40" cy="40" r="40"></circle>
+                            <circle class="progress" id="score-progress" cx="40" cy="40" r="40"></circle>
+                        </svg>
+                        <div class="progress-text">75%</div>
+                    </div>
+                    <div class="stat-trend trend-up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>12.5% increase</span>
+                    </div>
+                </div>
+                
+                <!-- Memory Space -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Memory Space</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">168.50B</div>
+                    <div class="stat-trend trend-down">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>5.2% decrease</span>
+                    </div>
+                </div>
+                
+                <!-- License Days -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">License Days</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">195d 8h</div>
+                    <div class="stat-trend">
+                        <i class="fas fa-minus"></i>
+                        <span>No change</span>
+                    </div>
+                </div>
+                
+                <!-- Active Users -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Active Users</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">23,342</div>
+                    <div class="stat-trend trend-up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>8.7% increase</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Grid -->
+            <div class="charts-grid">
+                <!-- Sales Analytics Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Sales Analytics</div>
+                        <div class="chart-actions">
+                            <button class="chart-btn active">Week</button>
+                            <button class="chart-btn">Month</button>
+                            <button class="chart-btn">Year</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Side Analysis Trend Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Side Analysis Trend</div>
+                        <div class="chart-actions">
+                            <button class="chart-btn active">All</button>
+                            <button class="chart-btn">Open</button>
+                            <button class="chart-btn">Products</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Management Table -->
+            <div class="table-container">
+                <div class="table-header">
+                    <div class="table-title">Project Management</div>
+                    <div class="table-actions">
+                        <button class="chart-btn"><i class="fas fa-filter"></i> Filter</button>
+                        <button class="chart-btn"><i class="fas fa-plus"></i> Add Project</button>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Budget</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Volkswagen</td>
+                            <td>$15,022</td>
+                            <td class="status-cell">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 70%"></div>
+                                </div>
+                                <span class="status-percent">70%</span>
+                            </td>
+                            <td>08 Nov 2019</td>
+                            <td>
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Land Event</td>
+                            <td>$2,322</td>
+                            <td class="status-cell">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 95%"></div>
+                                </div>
+                                <span class="status-percent">95%</span>
+                            </td>
+                            <td>12 Dec 2019</td>
+                            <td>
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sony Electronics</td>
+                            <td>$7,990</td>
+                            <td class="status-cell">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 30%"></div>
+                                </div>
+                                <span class="status-percent">30%</span>
+                            </td>
+                            <td>15 Jan 2020</td>
+                            <td>
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>$12,650</td>
+                            <td class="status-cell">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 50%"></div>
+                                </div>
+                                <span class="status-percent">50%</span>
+                            </td>
+                            <td>22 Feb 2020</td>
+                            <td>
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tesla Motors</td>
+                            <td>$24,300</td>
+                            <td class="status-cell">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 85%"></div>
+                                </div>
+                                <span class="status-percent">85%</span>
+                            </td>
+                            <td>05 Mar 2020</td>
+                            <td>
+                                <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- User Activity Chart -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="chart-title">User Activity</div>
+                    <div class="chart-actions">
+                        <button class="chart-btn active">Monthly</button>
+                        <button class="chart-btn">Weekly</button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="userActivityChart"></canvas>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Bankshead Pages -->
+        <div id="bankshead-page" >
+        </br>
+            <div id="ui-elements-page">
+                <h3 class="component-title">UI Elements</h3>
+                <div class="component-grid">
+                    <!-- Buttons -->
+                    <div class="component-card">
+                        <h4>Buttons</h4>
+                        <div class="component-preview">
+                            <button class="chart-btn">Primary</button>
+                            <button class="chart-btn active">Active</button>
+                            <button class="chart-btn" disabled>Disabled</button>
+                        </div>
+                        <p>Various button styles for user interaction.</p>
+                    </div>
+            
+                    <!-- Cards -->
+                    <div class="component-card">
+                        <h4>Cards</h4>
+                        <div class="component-preview">
+                            <div style="background: var(--secondary-bg); padding: 1rem; border-radius: 8px;">
+                                Contoh Kartu
+                            </div>
+                        </div>
+                        <p>Content containers with various style options.</p>
+                    </div>
+            
+                    <!-- Alerts -->
+                    <div class="component-card">
+                        <h4>Alerts</h4>
+                        <div class="component-preview">
+                            <div style="background: rgba(255, 99, 71, 0.1); color: var(--danger-color); padding: 1rem; border-radius: 8px;">
+                                Error Alert
+                            </div>
+                            <div style="background: rgba(52, 152, 219, 0.1); color: var(--accent-color); padding: 1rem; border-radius: 8px;">
+                                Info Alert
+                            </div>
+                        </div>
+                        <p>Notification messages with status colors.</p>
+                    </div>
+            
+                    <!-- Progress Bars -->
+                    <div class="component-card">
+                        <h4>Progress Bars</h4>
+                        <div class="component-preview">
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <p>Progress indicator with animation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="form-elements-page">
+                <h3 class="component-title">Form Elements</h3>
+                <div class="component-grid">
+                    <!-- Input Fields -->
+                    <div class="component-card">
+                        <h4>Input Fields</h4>
+                        <div class="component-preview">
+                            <input type="text" class="search-input" placeholder="Masukkan teks...">
+                        </div>
+                        <p>Various types of input fields with custom styles.</p>
+                    </div>
+            
+                    <!-- Select Dropdowns -->
+                    <div class="component-card">
+                        <h4>Select Dropdowns</h4>
+                        <div class="component-preview">
+                            <select class="search-input">
+                                <option>Pilih opsi</option>
+                                <option>Opsi 1</option>
+                                <option>Opsi 2</option>
+                            </select>
+                        </div>
+                        <p>Customizable dropdown components.</p>
+                    </div>
+            
+                    <!-- Checkboxes and Radio Buttons -->
+                    <div class="component-card">
+                        <h4>Checkboxes & Radio Buttons</h4>
+                        <div class="component-preview">
+                            <label><input type="checkbox"> Checkbox</label>
+                            <label><input type="radio" name="group1"> Radio Button</label>
+                        </div>
+                        <p>Input options with modern styles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="icons-page" class="page-container">
+                <h3 class="component-title">Icons</h3>
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h4>Business Icons</h4>
+                        <div class="component-preview">
+                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-briefcase"></i>
+                            <i class="fas fa-file-invoice"></i>
+                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-building"></i>
+                            <i class="fas fa-coins"></i>
+                            <i class="fas fa-clipboard-list"></i>
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <p>Icons relevant to reports, business, and work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="analyzing-page" class="page-container">
+                <h3 class="component-title">Analyzing</h3>
+                <div class="component-grid">
+                    <!-- Data Summary -->
+                    <div class="component-card">
+                        <h4>Data Summary</h4>
+                        <div class="component-preview">
+                            <p>Total Revenue: $50,000</p>
+                            <p>Active Users: 12,345</p>
+                            <p>Conversion Rate: 12.5%</p>
+                        </div>
+                        <p>Data summary for trend analysis.</p>
+                    </div>
+            
+                    <!-- Trend Analysis -->
+                    <div class="component-card">
+                        <h4>Trend Analysis</h4>
+                        <div class="component-preview">
+                            <canvas id="trendAnalysisChart"></canvas>
+                        </div>
+                        <p>Trend chart to visualize data changes.</p>
+                    </div>
+            
+                    <!-- Performance Metrics -->
+                    <div class="component-card">
+                        <h4>Performance Metrics</h4>
+                        <div class="component-preview">
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 75%;"></div>
+                            </div>
+                            <p>Progress: 75%</p>
+                        </div>
+                        <p>Measuring performance based on specific metrics.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                // Chart.js for Trend Analysis
+                const trendAnalysisChartCtx = document.getElementById('trendAnalysisChart').getContext('2d');
+                new Chart(trendAnalysisChartCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                        datasets: [{
+                            label: 'Revenue',
+                            data: [1000, 1500, 2000, 2500, 3000],
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            </script>
+
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-info">
+            <span>First seen: 23 Sep 2019</span>
+        </div>
+        <div class="copyright">
+            <p>Template <b>3Admin</b> by Triel Technologies (3L), a part of LeonXlab. All rights reserved.</p>
+        </div>
+    </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+
+        
+        // Theme Toggling
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                htmlElement.setAttribute('data-theme', 'dark');
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update theme-specific colors for charts
+            updateChartColors();
+        });
+        
+        // Sidebar Toggling
+        const toggleSidebar = document.querySelector('.toggle-sidebar');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        
+        toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+        });
+        
+        // Submenu Toggling
+        const submenuLinks = document.querySelectorAll('.menu-link.has-submenu');
+        
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const arrow = link.querySelector('.arrow');
+                const submenu = link.nextElementSibling;
+                
+                // Toggle submenu visibility
+                arrow.classList.toggle('open');
+                submenu.classList.toggle('open');
+                
+                // Calculate and set submenu height for smooth animation
+                if (submenu.classList.contains('open')) {
+                    submenu.style.height = submenu.scrollHeight + 'px';
+                } else {
+                    submenu.style.height = '0';
+                }
+            });
+        });
+        
+        // Mobile sidebar toggle
+        function handleMobileView() {
+            if (window.innerWidth <= 992) {
+                const mobileMenuBtn = document.querySelector('.toggle-sidebar');
+                
+                mobileMenuBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('mobile-visible');
+                });
+            }
+        }
+        
+        window.addEventListener('resize', handleMobileView);
+        handleMobileView();
+        
+        // Circular Progress Animation
+        const scoreProgress = document.getElementById('score-progress');
+        const radius = scoreProgress.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        
+        scoreProgress.style.strokeDasharray = circumference;
+        
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100) * circumference;
+            scoreProgress.style.strokeDashoffset = offset;
+        }
+        
+        // Animate the progress circles on load
+        setTimeout(() => {
+            setProgress(75);
+        }, 300);
+        
+        // Initialize the progress bars in Project Management table
+        const progressBars = document.querySelectorAll('.progress-value');
+        
+        progressBars.forEach(bar => {
+            setTimeout(() => {
+                bar.style.width = bar.style.width;
+            }, 500);
+        });
+        
+        // Chart.js Configuration
+        let chartTextColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim();
+        let chartBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim();
+        let chartGridColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim();
+        
+        function updateChartColors() {
+            chartTextColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim();
+            chartBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim();
+            chartGridColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim();
+            
+            // Re-render charts with new colors
+            salesChart.update();
+            trendChart.update();
+            userActivityChart.update();
+        }
+        
+        // Sales Analytics Chart
+        const salesChartCtx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(salesChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Online', 'Office', 'Marketing'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [23342, 13221, 1542],
+                    backgroundColor: [
+                        'rgba(52, 152, 219, 0.7)',
+                        'rgba(46, 204, 113, 0.7)',
+                        'rgba(155, 89, 182, 0.7)',
+                    ],
+                    borderColor: [
+                        'rgba(52, 152, 219, 1)',
+                        'rgba(46, 204, 113, 1)',
+                        'rgba(155, 89, 182, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: 'var(--primary-bg)',
+                        titleColor: 'var(--text-primary)',
+                        bodyColor: 'var(--text-secondary)',
+                        borderColor: 'var(--border-color)',
+                        borderWidth: 1,
+                        padding: 12,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold',
+                            family: 'Inter'
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 13
+                        },
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: chartGridColor,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            color: chartTextColor,
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            },
+                            callback: function(value) {
+                                if (value >= 1000) {
+                                    return (value / 1000) + 'k';
+                                }
+                                return value;
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: chartTextColor,
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Side Analysis Trend Chart
+        const trendChartCtx = document.getElementById('trendChart').getContext('2d');
+        const trendChart = new Chart(trendChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Open Value',
+                    data: [110, 125, 140, 138, 147, 155.5],
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                    pointBorderColor: 'rgba(255, 255, 255, 1)',
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                },
+                {
+                    label: 'Total Products',
+                    data: [210, 225, 240, 250, 270, 293.2],
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(46, 204, 113, 1)',
+                    pointBorderColor: 'rgba(255, 255, 255, 1)',
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutQuart'
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        align: 'end',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            boxWidth: 6,
+                            color: chartTextColor,
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'var(--primary-bg)',
+                        titleColor: 'var(--text-primary)',
+                        bodyColor: 'var(--text-secondary)',
+                        borderColor: 'var(--border-color)',
+                        borderWidth: 1,
+                        padding: 12,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold',
+                            family: 'Inter'
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 13
+                        },
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + '%';
+                            }
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: chartGridColor,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            color: chartTextColor,
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            },
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: chartTextColor,
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // User Activity Chart
+        const userActivityChartCtx = document.getElementById('userActivityChart').getContext('2d');
+        const userActivityChart = new Chart(userActivityChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Russell Floyd', 'Douglas White', 'Jerry Nelson', 'Thomas Baker', 'Michael Clark'],
+                datasets: [{
+                    axis: 'y',
+                    label: 'Activity Score',
+                    data: [987, 841, 742, 625, 520],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'var(--primary-bg)',
+                        titleColor: 'var(--text-primary)',
+                        bodyColor: 'var(--text-secondary)',
+                        borderColor: 'var(--border-color)',
+                        borderWidth: 1,
+                        padding: 12,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold',
+                            family: 'Inter'
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 13
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: chartTextColor,
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: chartGridColor,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            color: chartTextColor,
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Initialize Chart Colors
+        updateChartColors();
+        
+        // Button Click Animation
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.98)';
+            });
+            
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Chart Button Action Simulation
+        const chartButtons = document.querySelectorAll('.chart-btn');
+        chartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Remove active class from siblings
+                const siblings = Array.from(e.target.parentElement.children);
+                siblings.forEach(sibling => {
+                    sibling.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+            });
+        });
+
+        // Page Navigation Functionality
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.add('active');
+            }
+            
+            // Update active menu item
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Mark current menu item as active
+            const activeLink = document.querySelector(`.menu-link[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+        
+        // Initialize menu links with page navigation
+        document.querySelectorAll('.menu-link').forEach(link => {
+            const pageId = link.getAttribute('data-page');
+            if (pageId) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(pageId);
+                });
+            }
+        });
+        
+        // Initialize submenu links
+        document.querySelectorAll('.submenu-link').forEach(link => {
+            const pageId = link.getAttribute('data-page');
+            if (pageId) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(pageId);
+                });
+            }
+        });
+        
+        // Set dashboard as default page
+        showPage('dashboard-page');
+    </script>
+</body>
+</html>
